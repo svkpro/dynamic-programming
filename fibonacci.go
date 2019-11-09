@@ -7,11 +7,12 @@ import (
 func main() {
 
 	n := 10
-	lookup := make([]int, n+1)
+	var lookupBottomUp = make([]int, n+1)
+	var lookupTopDown = make([]int, n+1)
 
 	fmt.Println(FibonacciRecursively(n))
-	fmt.Println(FibonacciBottomUp(n, lookup))
-	fmt.Println(FibonacciTopDown(n, lookup))
+	fmt.Println(FibonacciBottomUp(n, lookupBottomUp))
+	fmt.Println(FibonacciTopDown(n, lookupTopDown))
 }
 
 func FibonacciRecursively(n int) int {

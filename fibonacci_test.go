@@ -6,7 +6,8 @@ import (
 
 const n = 10
 
-var lookup = make([]int, n+1)
+var lookupBottomUp = make([]int, n+1)
+var lookupTopDown = make([]int, n+1)
 
 func BenchmarkFibRecursively(b *testing.B) {
 	b.ReportAllocs()
@@ -18,13 +19,13 @@ func BenchmarkFibRecursively(b *testing.B) {
 func BenchmarkFibBottomUp(b *testing.B) {
 	b.ReportAllocs()
 	for i := 0; i < b.N; i++ {
-		FibonacciBottomUp(n, lookup)
+		FibonacciBottomUp(n, lookupBottomUp)
 	}
 }
 
 func BenchmarkFibonacciTopDown(b *testing.B) {
 	b.ReportAllocs()
 	for i := 0; i < b.N; i++ {
-		FibonacciTopDown(n, lookup)
+		FibonacciTopDown(n, lookupTopDown)
 	}
 }
